@@ -7,8 +7,17 @@ Welcome to Geno Docs!
 =========================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
+   :caption: 平台介绍
 
    intros/index
    faq/index
    feature/cases
+
+
+.. toctree::
+   :maxdepth: 1
+   :caption: 平台介绍
+
+   docs/introduction.md
+   docs/change_log/index.rst
