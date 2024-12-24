@@ -3,6 +3,8 @@
 .. toctree::
    :maxdepth:5
 
-   privacy/contents
-   validate/contents
-   syn/contents
+   intros/cases.md
+   intros/feature.md
+   intros/introduce.md
+   contract/cases.md
+   architecture/consensus/intro.md

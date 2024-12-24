@@ -6,9 +6,9 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'geno-document'
-copyright = '2024, geno'
-author = 'geno'
+project = 'Geno Documentation'
+copyright = '2024, Geno'
+author = 'Geno'
 release = 'master'
 
 # -- General configuration ---------------------------------------------------
