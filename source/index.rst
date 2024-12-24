@@ -8,6 +8,7 @@ Welcome to Geno Docs!
 
 .. toctree::
    :maxdepth: 2
-
+   :caption: Contents:
+   
    intros/index
    faq/index
