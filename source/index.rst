@@ -3,21 +3,22 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Geno Docs!
+Welcome to Geno Documentation !
 =========================================
 
 .. toctree::
-   :maxdepth: 1
-   :caption: 平台介绍
+   :maxdepth: 2
+   :caption: 概览与简介
 
-   intros/index
-   faq/index
-   feature/cases
+   intros/introduce.md
+   intros/feature.md
+   intros/cases.md
 
 
 .. toctree::
-   :maxdepth: 1
-   :caption: 平台介绍
+   :maxdepth: 2
+   :caption: 体系结构与设计理念
 
-   docs/introduction.md
-   docs/change_log/index.rst
+   architecture/design/design.md
+   architecture/consensus/intro.md
+   
