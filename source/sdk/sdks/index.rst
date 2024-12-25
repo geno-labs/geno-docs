@@ -1,10 +1,11 @@
+##############################################################
+SDK集成指南
+##############################################################
 
 .. toctree::
    :maxdepth: 2
 
-   design/design.md
-   consensus/intro.md
-   contract_vm/contract_demo.md
-   contract_vm/deploy.md
+   go_sdk.md
+   java_sdk.md
 
    
