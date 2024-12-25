@@ -47,8 +47,8 @@ Welcome to Geno Documentation !
    :maxdepth: 2
    :caption: API 与 SDK
 
-   sdk/json_rpc_api.md
-   sdk/sdk.md
+   RPC接口说明 <sdk/json_rpc/index.rst>
+   SDK集成指南 <sdk/sdks/index.rst>
 
 
 .. toctree::
