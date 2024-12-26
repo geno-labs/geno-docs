@@ -27,7 +27,9 @@ Welcome to Geno Documentation !
    :maxdepth: 2
    :caption: 节点部署与网络配置
 
-   node/preparation.md  
+   node/preparation/index.rst
+   node/install/index.rst
+   node/network/index.rst
 
 
 .. toctree::
