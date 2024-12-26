@@ -19,8 +19,9 @@ Welcome to Geno Documentation !
    :maxdepth: 2
    :caption: 体系结构与设计理念
 
-   architecture/index.rst
-
+   architecture/design/index.rst
+   architecture/consensus/index.rst
+   architecture/contract_vm/index.rst
 
 .. toctree::
    :maxdepth: 2
