@@ -36,15 +36,16 @@ Welcome to Geno Documentation !
    :maxdepth: 2
    :caption: 账户与身份管理
 
-   account/account.md
-
+   account/introduce/index.rst
+   account/privacy/index.rst
 
 .. toctree::
    :maxdepth: 2
    :caption: 智能合约开发与测试
 
-   contract/contract_testing.md
-
+   contract/preparatioon/index.rst
+   contract/guide/index.rst
+   contract/testing.md
 
 .. toctree::
    :maxdepth: 2
