@@ -18,7 +18,7 @@
 
 ## 核心架构设计
 
-![geno architecture](/img/img_0001.jpg)
+![geno architecture](../../img/img_0001.jpg)
 
 系统整体采用分层架构，主要分为以下层次：
 
