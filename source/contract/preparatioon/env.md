@@ -7,7 +7,6 @@ Geno智能合约是 `Rust` 语言，所以合约编译过程依赖 `Rust` 语言
 ```
    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
-
 * 对于Windows用户，要使用 Rust，请下载安装器，然后运行该程序并遵循屏幕上的指示。
   - [32位系统下载](https://static.rust-lang.org/rustup/dist/i686-pc-windows-msvc/rustup-init.exe)
   - [64位系统下载](https://static.rust-lang.org/rustup/dist/x86_64-pc-windows-msvc/rustup-init.exe)

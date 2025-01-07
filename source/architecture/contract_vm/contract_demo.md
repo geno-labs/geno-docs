@@ -5,7 +5,7 @@
 我们编写一个简单智能合约————的存储与读取数据————作为示例；在这个实例中，用户使用自己的账户地址作为key值，`Info`作为value。用户可以通过调用`set`函数将准备好的`Info`存到链上；然后通过`get`函数，以及准备好的`Key`参数，读取到存储的数据。
 
 
-```
+```rust
     #![cfg_attr(not(feature = "std"), no_std)]
     use concordium_std::{collections::*, *};
 
@@ -116,7 +116,7 @@
 
 * 存储参数
   我们只需要把需要存储的数据，按照rust语法写出就可以。我们定义一个`u64`的`id`， 两个`String`类型的`name`和`storage`。
-  ```
+  ```rust
     #[derive(Serialize, SchemaType)]
     struct Info {
         id:         u64,
@@ -129,7 +129,7 @@
   
 * 读取参数
   读取参数很简单，就是账户地址。
-  ```
+  ```rust
     #[derive(Serialize, SchemaType)]
     struct Key {
         address : AccountAddress,
@@ -141,7 +141,7 @@
 
 就是用来初始化合约，这个函数只会在合约安装的时候，调用一次。实现如下：
 
-```
+```rust
     #[init(contract = "Storage", payable)]
     #[inline(always)]
     fn contract_init<I: HasInitContext<()>>(
@@ -164,7 +164,7 @@
 
 对比初始化函数，调用函数可以调用多次，我们以`set`函数为例。
 
-```
+```rust
     #[receive(contract = "Storage", name = "set", parameter = "Info", enable_logger)]
     #[inline(always)]
     fn contract_set<A: HasActions>(
