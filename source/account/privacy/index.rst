@@ -1,11 +1,11 @@
 ##############################################################
-数据隐私保护与加密存储
+隐私保护
 ##############################################################
 
 .. toctree::
    :maxdepth: 1
 
-   encrypted.md
-   transaction.md
+   selective_disclosure.md
+   zeroknowledge_proof.md
 
-   
+
