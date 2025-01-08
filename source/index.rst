@@ -34,10 +34,11 @@ Welcome to Geno Documentation !
 
 .. toctree::
    :maxdepth: 2
-   :caption: 账户与身份管理
+   :caption: 账户与隐私保护
+   account/introduce/account.md
+   account/introduce/identity.md
+   account/introduce/did_vc.md
 
-   account/introduce/index.rst
-   account/privacy/index.rst
 
 .. toctree::
    :maxdepth: 2
