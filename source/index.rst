@@ -36,8 +36,7 @@ Welcome to Geno Documentation !
    :maxdepth: 2
    :caption: 账户与隐私保护
 
-   account/introduce/account.md
-   account/introduce/identity.md
+   account/introduce/index.rst
    account/privacy/index.rst
 
 
