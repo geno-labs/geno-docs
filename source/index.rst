@@ -37,7 +37,7 @@ Welcome to Geno Documentation !
    :caption: 账户与隐私保护
    account/introduce/account.md
    account/introduce/identity.md
-   account/introduce/did_vc.md
+   account/privacy/index.rst
 
 
 .. toctree::
