@@ -5,7 +5,7 @@
 .. toctree::
    :maxdepth: 1
 
-   create.md
+   account.md
    identity.md
 
-   
+
