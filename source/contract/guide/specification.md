@@ -165,14 +165,14 @@ enum Event{
 在方法执行的过程中，需要触发事件的时候，我们就可以使用`logger.log()`方法，来触发事件。
 ```Rust
 #[receive(contract="erc20",name="receive", parameter="Request", enable_logger)]
-Fn contract_receive<A:HasActions>(
-ctx:&impl HasReceiveContext<()>,
-logger:&mut impl HasLogger,
-state:&mut State,
-)->Result<A,ReceiveError>{
-… …
-logger.log(&Event::Transfer(sender_address,receiver_address,amount))?;
-… … 
+fn contract_receive<A:HasActions>(
+    ctx:&impl HasReceiveContext<()>,
+    logger:&mut impl HasLogger,
+    state:&mut State,
+) -> Result<A,ReceiveError> {
+    … …
+    logger.log(&Event::Transfer(sender_address,receiver_address,amount))?;
+    … … 
 }
 ```
 等到方法执行完成后，应用就可以查询到该事件通知；
