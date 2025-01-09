@@ -75,10 +75,10 @@ pub struct State {
 初始化函数方法，主要作用是初始化智能合约的状态。这类方法每个智能合约只有一个，且只在合约创建的时候执行一次，之后都不会在调用；这类方法，不需要用户调用，是自动执行的；
 
 我们可以通过使用`#[init]`宏去标记一个函数，将其定义为初始化函数，例如：
-```Rust
+```rust
 #[init(contract="erc20")]
-fncontract_init<I:HasInitContext<()>,L:HasLogger>(ctx:&I,logger:&mutL,)->InitResult<State>{
-… … 
+fn contract_init<I:HasInitContext<()>, L:HasLogger>(ctx:&I,logger:&mut L)->InitResult<State>{
+    ... ...
 }
 ```
 
@@ -86,58 +86,58 @@ fncontract_init<I:HasInitContext<()>,L:HasLogger>(ctx:&I,logger:&mutL,)->InitRes
 调用方法，这类方法主要是给用户使用的，用户可以通过这类方法与智能合约交互，进行更新、查询等操作。这类方法是由用户使用交易进行触发的，没有次数的限制。
  
 使用`#[receive(…)]`宏，标记一个调用方法，同时还需要使用`name`去指定这个调用方法的名字；
-```Rust
+```rust
 #[receive(contract="erc20",name="receive")]
-Fn contract_receive<A:HasActions>(
-ctx:&impl HasReceiveContext<()>,
-state:&mut State,
+fn contract_receive<A:HasActions>(
+    ctx:&impl HasReceiveContext<()>,
+    state:&mut State,
 )->Result<A,ReceiveError>{
-… … 
+    ... ...
 }
 ``` 
 
 #### 参数
-用户可以通过`parameter`属性去指定方法的参数类型，。
+用户可以通过`parameter`属性去指定方法的参数类型。
 ```Rust
 #[receive(contract="erc20",name="receive", parameter="Request")]
-Fn contract_receive<A:HasActions>(
-ctx:&impl HasReceiveContext<()>,
-state:&mut State,
+fn contract_receive<A:HasActions>(
+    ctx:&impl HasReceiveContext<()>,
+    state:&mut State,
 )->Result<A,ReceiveError>{
     let req: Request = ctx.parameter_cursor().get()?;
-    … … 
+    ... ...
 }
 ``` 
 
 ### 返回值
 用户可以通过`result`属性去指定方法的返回值类型。
-```Rust
+```rust
 #[receive(contract="erc20",name="receive", parameter="Request", result = "Information")]
-Fn contract_receive<A:HasActions>(
-ctx:&impl HasReceiveContext<()>,
-state:&mut State,
+fn contract_receive<A:HasActions>(
+    ctx:&impl HasReceiveContext<()>,
+    state:&mut State,
 )->Result<A,ReceiveError>{
-… … 
-ctx.result(Information {
-        name: tokeninfo.name,
-        total_supply: tokeninfo.total_supply,
-        owner: ctx.owner(),
-    });
+    ... ...
+    ctx.result(Information {
+            name: tokeninfo.name,
+            total_supply: tokeninfo.total_supply,
+            owner: ctx.owner(),
+        });
 }
 ``` 
 
 ### 收发代币
 表示该方法是否可以接受代币。使用`payable`属性标识。
 
-```Rust
+```rust
 #[receive(contract="erc20",name="receive", parameter="Request", result = "Information"，payable)]
-Fn contract_receive<A:HasActions>(
-ctx:&impl HasReceiveContext<()>,
-state:&mut State,
-amount: Amount,
+fn contract_receive<A:HasActions>(
+    ctx:&impl HasReceiveContext<()>,
+    state:&mut State,
+    amount: Amount,
 )->Result<A,ReceiveError>{
     let num = amout;
-    … … 
+    ... ...
 }
 ``` 
 
@@ -163,16 +163,16 @@ enum Event{
 
 在方法中，需要添加 `enable_logger`表示使能合约事件，然后在参数中添加`logger:&mut impl HasLogger`。
 在方法执行的过程中，需要触发事件的时候，我们就可以使用`logger.log()`方法，来触发事件。
-```Rust
+```rust
 #[receive(contract="erc20",name="receive", parameter="Request", enable_logger)]
-Fn contract_receive<A:HasActions>(
-ctx:&impl HasReceiveContext<()>,
-logger:&mut impl HasLogger,
-state:&mut State,
-)->Result<A,ReceiveError>{
-… …
-logger.log(&Event::Transfer(sender_address,receiver_address,amount))?;
-… … 
+fn contract_receive<A:HasActions>(
+    ctx:&impl HasReceiveContext<()>,
+    logger:&mut impl HasLogger,
+    state:&mut State,
+) -> Result<A,ReceiveError> {
+    ... ...
+    logger.log(&Event::Transfer(sender_address,receiver_address,amount))?;
+    ... ...
 }
 ```
 等到方法执行完成后，应用就可以查询到该事件通知；
