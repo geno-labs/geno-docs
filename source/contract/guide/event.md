@@ -64,19 +64,17 @@ fn contract_result<...> (...){ ... }
 
 合约内部定义的数据结构，对应用户与合约交互时，使用的`Json`结构。
 
-| **Rust**                             | **Json** | **示例**                                            |
-| ------------------------------------ | -------- | --------------------------------------------------- |
-| u8, u16, u32, u64, i8, i16, i32, i64 | 数字     | 数字                                                |
-| Amount                               | 字符串   | "123456789"                                         |
-| AccountAddress                       | 字符串   | "0x1b93ce17644b8f2d2caa46629fb2dda98ae7ee1e"        |
-| U128, I128                           | 字符串   | 字符串                                              |
-| timestamp                            | 字符串   | "2020-12-11T11:38:37Z"                              |
-| Duration                             | 字符串   | "10d 1h 42s 1h"                                     |
-| Pair                                 | 数组     | [200, "0x1b93ce17644b8f2d2caa46629fb2dda98ae7ee1e"] |
-| List                                 | 数组     | [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]                   |
-| Set                                  | 数组     | [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]                   |
-| Map                                  | 数组     | 字符串                                              |
-| Array                                | 数组     | 字符串                                              |
-| Struct                               | 对象     | 字符串                                              |
-| Enum                                 | 对象     | 字符串                                              |
-| String                               | 字符串   | 字符串                                              |
+| **Rust**                          | **Json**                              | **示例**                                                                                                                                                                                            |
+| --------------------------------- | ------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| u8,u16,u32,u64,<br>i8,i16,i32,i64 | Number                                | `{ "age":30 }`                                                                                                                                                                                      |
+| Amount                            | String                                | `"123456789"`                                                                                                                                                                                       |
+| AccountAddress                    | String                                | `"0x1b93ce17644b8f2d2caa46629fb2dda98ae7ee1e"`                                                                                                                                                      |
+| U128, I128                        | String                                | `"123456789"`                                                                                                                                                                                       |
+| timestamp                         | String,使用RFC3339格式，精度为毫秒    | `"2020-12-11T11:38:37Z"`                                                                                                                                                                            |
+| Duration                          | String,是一个用空格分隔的时间量度列表 | `"10d 1h 42s 1h"`                                                                                                                                                                                   |
+| Pair                              | Array                                 | `Pair(U8, AccountAddress)` -> `[200, "0x1b93ce17644b8f2d2caa46629fb2dda98ae7ee1e"]`                                                                                                                 |
+| List,Set,Array                    | Array                                 | `[0, 1, 1, 2, 3, 5, 8, 13, 21, 34]`                                                                                                                                                                 |
+| Map                               | Array                                 | `Map(AccountAddress, U64)` -> `[ ["0x1b93ce17644b8f2d2caa46629fb2dda98ae7ee1e", 0],["0x1b93ce17644b8f2d2caa46629fb2dda98ae7ee1f", 15000000],["0x1b93ce17644b8f2d2caa46629fb2dda98ae7ee1g", 12400]]` |
+| Struct                            | Object                                | `struct Person { id: u32,age: u8}` ->  `{"id": 500,"age": 35}`                                                                                                                                      |
+| Enum                              | Array                                 | `enum Request { TransferTo(AccountAddress, u64)}` -> `{ "TransferTo":["0xdce0c7cb2b3265fbc1ee2d5092bcbb8d50d9e3a3",99]}`                                                                            |
+| String                            | String                                | `"abcd"`                                                                                                                                                                                            |
