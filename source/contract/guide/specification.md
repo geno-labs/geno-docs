@@ -77,8 +77,8 @@ pub struct State {
 我们可以通过使用`#[init]`宏去标记一个函数，将其定义为初始化函数，例如：
 ```rust
 #[init(contract="erc20")]
-fn contract_init<I:HasInitContext<()>,L:HasLogger>(ctx:&I,logger:&mutL,)->InitResult<State>{
-    … … 
+fn contract_init<I:HasInitContext<()>, L:HasLogger>(ctx:&I,logger:&mut L)->InitResult<State>{
+    ... ...
 }
 ```
 
@@ -92,7 +92,7 @@ fn contract_receive<A:HasActions>(
     ctx:&impl HasReceiveContext<()>,
     state:&mut State,
 )->Result<A,ReceiveError>{
-    … … 
+    ... ...
 }
 ``` 
 
@@ -105,7 +105,7 @@ fn contract_receive<A:HasActions>(
     state:&mut State,
 )->Result<A,ReceiveError>{
     let req: Request = ctx.parameter_cursor().get()?;
-    … … 
+    ... ...
 }
 ``` 
 
@@ -117,7 +117,7 @@ fn contract_receive<A:HasActions>(
     ctx:&impl HasReceiveContext<()>,
     state:&mut State,
 )->Result<A,ReceiveError>{
-    … … 
+    ... ...
     ctx.result(Information {
             name: tokeninfo.name,
             total_supply: tokeninfo.total_supply,
@@ -137,7 +137,7 @@ fn contract_receive<A:HasActions>(
     amount: Amount,
 )->Result<A,ReceiveError>{
     let num = amout;
-    … … 
+    ... ...
 }
 ``` 
 
@@ -170,9 +170,9 @@ fn contract_receive<A:HasActions>(
     logger:&mut impl HasLogger,
     state:&mut State,
 ) -> Result<A,ReceiveError> {
-    … …
+    ... ...
     logger.log(&Event::Transfer(sender_address,receiver_address,amount))?;
-    … … 
+    ... ...
 }
 ```
 等到方法执行完成后，应用就可以查询到该事件通知；
