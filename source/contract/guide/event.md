@@ -13,6 +13,70 @@
 
 ![ABI调用](./abicall.png)
 
-## Geno ABI定义
+## Geno ABI 类型标记
+为了编译出`ABI`，我们需要在编写智能合约的时候，进行标记我们需要生成`ABI`的数据；主要包括智能合约的状态，函数的输入参数和返回结果；由于我们是使用rust编写智能合约，所以需要给这些部分添加`SchemaType`的宏。例如：
+```rust
+#[derive(SchemaType)]
+Struct ContractState{
+  … …
+}
+```
+### 标记智能合约状态
+我们通过`#[contract_state(contract = … )] `指定某个数据结构作为智能合约的状态。
+```rust
+#[contract_state(contract = "contract_name")]
+#[derive(SchemaType)]
+struct ContractState {
+   ... ...
+}
+```
 
-## Geno ABI类型对照表
+### 标记函数的参数
+标记合约方法的输入参数，包括了初始化合约的参数，以及普通的调用参数；
+可以使用`#[init(contract = "contract_name", parameter = "Init_Parameter")]`指定智能合约的初始化函数的参数`Init_Parameter`，以及`#[receive(contract = "contract_name", name = "receive_name", parameter = "Receive_Parameter")]`指定智能合约的调用函数的参数`Receive_Parameter`。
+
+```rust
+#[derive(SchemaType)]
+struct Init_Parameter { ... }
+
+#[derive(SchemaType)]
+enum Receive_Parameter { ... }
+
+#[init(contract = "contract_name", parameter = "Init_Parameter")]
+fn contract_init<...> (...){ ... }
+
+#[receive(contract = "contract_name", name = "receive_name", parameter = "Receive_Parameter")]
+fn contract_receive<...> (...){ ... }
+```
+
+### 标记函数的返回值
+使用`#[receive(contract = "contract_name", name = "receive_name", result = "result")]`指定调用函数的返回值`Receive_Result`。
+
+```rust
+#[derive(SchemaType)]
+enum Receive_Result { ... }
+
+#[receive(contract = "contract_name", name = "receive_name", result = "Receive_Result")]
+fn contract_result<...> (...){ ... }
+```
+
+## Geno ABI 类型对照表
+
+合约内部定义的数据结构，对应用户与合约交互时，使用的`Json`结构。
+
+| **Rust**                             | **Json** | **示例**                                            |
+| ------------------------------------ | -------- | --------------------------------------------------- |
+| u8, u16, u32, u64, i8, i16, i32, i64 | 数字     | 数字                                                |
+| Amount                               | 字符串   | "123456789"                                         |
+| AccountAddress                       | 字符串   | "0x1b93ce17644b8f2d2caa46629fb2dda98ae7ee1e"        |
+| U128, I128                           | 字符串   | 字符串                                              |
+| timestamp                            | 字符串   | "2020-12-11T11:38:37Z"                              |
+| Duration                             | 字符串   | "10d 1h 42s 1h"                                     |
+| Pair                                 | 数组     | [200, "0x1b93ce17644b8f2d2caa46629fb2dda98ae7ee1e"] |
+| List                                 | 数组     | [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]                   |
+| Set                                  | 数组     | [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]                   |
+| Map                                  | 数组     | 字符串                                              |
+| Array                                | 数组     | 字符串                                              |
+| Struct                               | 对象     | 字符串                                              |
+| Enum                                 | 对象     | 字符串                                              |
+| String                               | 字符串   | 字符串                                              |
