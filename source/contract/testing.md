@@ -125,15 +125,15 @@ wasm-stripe  target\c\wasm32-unknown-unknown\release\helloworld.wasm
 参照这里[API](https://geno-docs.readthedocs.io/zh-cn/latest/sdk/json_rpc/index.html)  
 部署合约，将编译好的合约，拷贝到相应的位置。
 ```python
-    code = api.read_code_from_file("./contract/helloworld.wasm")
+code = api.read_code_from_file("./contract/helloworld.wasm")
 
-    api.call(
-        from_address=api.genesis_address, 
-        from_priv = api.genesis_private_key, 
-        name = "helloworld", 
-        nonce=nonce,
-        code=code,
-        balance=0)
+api.call(
+    from_address = api.genesis_address, 
+    from_priv = api.genesis_private_key, 
+    name = "helloworld", 
+    nonce = nonce,
+    code = code,
+    balance = 0)
 ```
 部署成功后，通过查询交易哈希，可以找到新合约的地址`did:geno:0x17h81daf6217e495fae32286c3137b6e0f78cdfd`；
 ```json
@@ -142,12 +142,12 @@ wasm-stripe  target\c\wasm32-unknown-unknown\release\helloworld.wasm
 
 调用合约，
 ```python
-    api.call(
-        from_address=api.genesis_address, 
-        from_priv = api.genesis_private_key, 
-        function = "hello",
-        to = contract_address,
-        nonce=nonce)
+api.call(
+    from_address = api.genesis_address, 
+    from_priv = api.genesis_private_key, 
+    function = "hello",
+    to = contract_address,
+    nonce = nonce)
 ```
 调用成功后，通过交易哈希，可以查询到返回值`hello world!`.
 ```json

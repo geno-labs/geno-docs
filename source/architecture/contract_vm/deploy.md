@@ -1,6 +1,6 @@
 # 部署、升级、治理流程
 
-合约的相关操作可以参看`Json Rpc Api`.未来方便观察交易结构，这里我们使用测试接口`test_sign_tx`，由链上帮助我们进行签名操作。
+合约的相关操作可以参照这里[Json Rpc Api](https://geno-docs.readthedocs.io/zh-cn/latest/sdk/json_rpc/index.html).未来方便观察交易结构，这里我们使用测试接口`test_sign_tx`，由链上帮助我们进行签名操作。
 
 + `from`: `string` 类型，发送方地址
 + `nonce`: `number` 类型，发送方账户nonce
