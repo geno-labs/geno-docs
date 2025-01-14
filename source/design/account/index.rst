@@ -7,6 +7,6 @@
 
    introduce.md
    identity.md
-   privacy.md
+   privacy/index.rst
 
 
