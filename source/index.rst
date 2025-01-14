@@ -21,6 +21,18 @@ Welcome to Geno Documentation !
    quick_start/network/index.rst
    quick_start/contract/index.rst
 
+
+.. toctree::
+   :maxdepth: 2
+   :caption: 系统设计
+
+   design/architecture/index.rst
+   design/consensus/index.rst
+   design/evm/index.rst
+   design/system_contract/index.rst
+   design/account/index.rst
+   design/feature/native_asset.md
+
 .. toctree::
    :maxdepth: 2
    :caption: 版本管理与发布说明
