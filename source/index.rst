@@ -18,7 +18,7 @@ Welcome to Geno Documentation !
    :maxdepth: 2
    :caption: 快速开始
 
-   quick_start/network/install/index.rst
+   quick_start/network/index.rst
    quick_start/contract/index.rst
 
 .. toctree::
