@@ -5,8 +5,8 @@
 .. toctree::
    :maxdepth: 2
 
-   quick_start/network/preparation/index.rst
-   quick_start/network/install/index.rst
-   quick_start/network/network/index.rst
+   preparation/index.rst
+   install/index.rst
+   network/index.rst
 
    
