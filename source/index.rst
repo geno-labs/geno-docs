@@ -21,6 +21,15 @@ Welcome to Geno Documentation !
    quick_start/network/index.rst
    quick_start/contract/index.rst
 
+.. toctree::
+   :maxdepth: 2
+   :caption: 组件和工具
+
+   tools/cmd.md
+   tools/json_rpc.md
+   tools/sdk/index.rst
+   tools/scan.md
+   tools/test_script.md
 
 .. toctree::
    :maxdepth: 2
