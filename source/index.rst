@@ -26,7 +26,7 @@ Welcome to Geno Documentation !
    :caption: 组件和工具
 
    tools/cmd.md
-   tools/json_rpc.md
+   tools/json_rpc/index.rst
    tools/sdk/index.rst
    tools/scan.md
    tools/test_script.md
