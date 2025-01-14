@@ -5,7 +5,8 @@
 .. toctree::
    :maxdepth: 2
 
-   go_sdk.md
-   java_sdk.md
+   quick_start/network/preparation/index.rst
+   quick_start/network/install/index.rst
+   quick_start/network/network/index.rst
 
    
