@@ -1,11 +1,13 @@
 ##############################################################
-SDK集成指南
+智能合约开发与测试
 ##############################################################
 
 .. toctree::
    :maxdepth: 2
 
-   go_sdk.md
-   java_sdk.md
+   install/index.rst
+   network/index.rst
+   preparation/index.rst
+
 
    
