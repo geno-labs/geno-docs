@@ -1,12 +1,12 @@
 ##############################################################
-智能合约开发与测试
+合约编写指南
 ##############################################################
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
-   preparation/index.rst
-   guide/index.rst
-   testing.md
+   specification.md
+   grammar.md
+   event.md
 
    
