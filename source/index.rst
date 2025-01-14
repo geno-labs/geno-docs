@@ -10,8 +10,8 @@ Welcome to Geno Documentation !
    :maxdepth: 2
    :caption: 概览
 
-   intros/introduce.md
-   intros/cases.md
+   overview/introduce.md
+   overview/cases.md
 
 
 .. toctree::
