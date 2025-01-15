@@ -9,21 +9,21 @@
   ```rust
   fn slot_time(&self) -> SlotTime
   //示例
-  let time = ctx.metadata().slot_time()；
+  let time = ctx.metadata().slot_time();
   ```
 * **区块高度**  
   返回当前区块高度
   ```rust
   fn height(&self) -> u64
   //示例
-  let height = ctx.metadata().height()；
+  let height = ctx.metadata().height();
   ```
 * **交易hash**  
   返回当前交易的hash
   ```rust
   fn tx_hash(&self)->String
   //示例
-  let tx_hash = ctx.metadata().tx_hash()；
+  let tx_hash = ctx.metadata().tx_hash();
   ```
 * **获取调用参数**  
   在函数中使用，返回当前函数的参数，返回值是泛型。
