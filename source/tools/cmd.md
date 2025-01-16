@@ -8,7 +8,7 @@ Geno 的命令行工具（CLI）旨在提供一个简洁、高效的方式来管
 
 ### 安装条件
 
-1. 确保已安装Node.js（如果使用基于Node.js的CLI）或者其他支持的环境，如Python或Go。
+1. 确保已安装 Rust（如果使用基于Node.js的CLI）
 2. 安装Git用于从GitHub克隆项目。
 
 ### 安装CLI
@@ -18,57 +18,178 @@ Geno 的命令行工具（CLI）旨在提供一个简洁、高效的方式来管
    ```shell
    git clone <project-url>
    ```
-2. 安装依赖（以Node.js为例）
+2. 进入项目 `root` 目录，执行命令安装依赖并生成可执行命令文件
+
    ```shell
-   cd geno-cli
-   npm install
+   cargo build
    ```
+
+3. 检查是否安装成功
+   
+   进入目录 `target\debug\`，执行命令:
+   
+   ```shell
+      geno --version
+   ```
+
 ### 配置CLI
 
-+ 在项目根目录中创建或编辑配置文件（如config.json）来指定节点地址、网络ID等。
 
 ## 基本命令
 
-### 创建钱包
+### Check Address
 
-```shell
-geno-cli get-block <block-number-or-hash>
-```
+   校验地址格式
 
-### 查看钱包余额
+   ```shell
+      geno --check-address <address>
+   ```
 
-```shell
-geno-cli get-block <block-number-or-hash>
-```
+   + `address` : 地址
+  
+### Check Keystore
 
-### 发送交易
+   校验 Keystore
 
-```shell
-geno-cli send-tx --from <from-address> --to <to-address> --amount <value>
-```
+   ```shell
+      geno --check-keystore <keystore> <password>
+   ```
 
-### 部署智能合约
+   + `keystore` : keystore 文件路径
+   + `password` : 密码
 
-```shell
-geno-cli deploy-contract --file <path-to-contract> --abi <path-to-abi>
-```
+### Check Signed Data
 
-### 调用合约方法
+   验证签名
 
-```shell
-geno-cli call-contract --address <contract-address> --method <method-name> --params <comma-separated-params>
-```
+   ```shell
+      geno --check-signed-data <blob_data> <signed_data> <public_key> <algorithm>
+   ```
 
-## 高级命令
+   + `blob_data` : 源数据
+   + `signed_data` : 加密后的数据
+   + `public_key` : keystore 文件路径
+   + `algorithm` : 加密算法类型: `eddsa_ed25519` or `secp256k1`
 
-### 查询区块信息
+### Create Account
 
-```shell
-geno-cli get-block <block-number-or-hash>
-```
+   创建钱包
 
-### 查询交易信息
+   ```shell
+      geno --create-account <algorithm_name>
+   ```
 
-```shell
-geno-cli get-tx <transaction-hash>
-```
+   + `algorithm_name` : 加密算法类型: `eddsa_ed25519` or `secp256k1`
+
+### Create Keystore
+
+   创建钱包 Keystore
+
+   ```shell
+      geno --create-keystore <algorithm_name> <password> 
+   ```
+
+   + `algorithm_name` : 加密算法类型: `eddsa_ed25519` or `secp256k1`
+   + `password` : 密码
+
+### Create Keystore From PrivateKey
+
+   根据 Private Key 恢复 Keystore 文件
+
+   ```shell
+      geno --create-keystore-from-privatekey <private_key> <algorithm_name> <password>
+   ```
+
+   + `private_key` : 私钥
+   + `algorithm_name` : 加密算法类型: `eddsa_ed25519` or `secp256k1`
+   + `password` : 密码
+
+### Reset Block Number
+
+   重置区块高度
+
+   ```shell
+      geno --force-block-number <number> 
+   ```
+
+   + `number` : 区块高度
+
+### Get Address （Private Key）
+
+   根据私钥恢复地址
+
+   ```shell
+      geno --get-address <private_key> <algorithm_name> 
+   ```
+
+   + `private_key` : 私钥
+   + `algorithm_name` : 加密算法类型: `eddsa_ed25519` or `secp256k1`
+
+### Get Address （Public Key）
+
+   根据公钥恢复地址
+
+   ```shell
+      geno --get-address-from-pubkey <public_key> <algorithm_name>
+   ```
+
+   + `public_key` : 公钥
+   + `algorithm_name` : 加密算法类型: `eddsa_ed25519` or `secp256k1`
+
+### Get Address （Keystore）
+
+   根据 Keystore 文件恢复地址
+
+   ```shell
+      geno --get-privatekey-from-keystore <keystore> <password>
+   ```
+
+   + `keystore` : keystore 文件路径
+   + `password` : 密码
+
+### Issue Credential
+
+   发布证书
+
+   ```shell
+      geno --issue-credential <issuer_did> <subject_did> <issuer_private_key>
+   ```
+
+   + `issuer_did` : 发布者地址
+   + `subject_did` : 发布内容
+   + `issuer_private_key` : 私钥
+
+### Sign
+
+   签名
+
+   ```shell
+      geno --sign-data <private_key> <blob_data> <algorithm_name>
+   ```
+
+   + `private_key` : 私钥
+   + `blob_data` : 源数据
+   + `algorithm_name` : 加密算法类型: `eddsa_ed25519` or `secp256k1`
+
+### Sign (Keystore)
+
+   根据 Keystore 文件进行签名
+
+   ```shell
+      geno --sign-data-with-keystore <keystore> <password> <blob_data> <algorithm_name>
+   ```
+
+   + `keystore` : keystore 文件路径
+   + `password` : 密码
+   + `blob_data` : 源数据
+   + `algorithm_name` : 加密算法类型: `eddsa_ed25519` or `secp256k1`
+
+## 其他命令
+
+### Get Help
+
+查看帮助
+
+   ```shell
+      geno --help
+   ```
