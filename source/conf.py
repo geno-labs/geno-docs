@@ -17,7 +17,7 @@ release = 'master'
 extensions = [
         'recommonmark',
         'sphinx_markdown_tables',
-        'myst_parser'
+        
 ]
 
 templates_path = ['_templates']

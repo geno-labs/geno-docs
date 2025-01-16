@@ -1,4 +1,9 @@
-sphinx
-sphinx_rtd_theme
-recommonmark
-sphinx_markdown_tables
+sphinx==7.2.6
+sphinx_rtd_theme==2.0.0
+recommonmark==0.7.1
+sphinx_markdown_tables==0.0.15
+sphinx-autobuild==2021.3.14
+sphinx-notfound-page==1.0.0
+lxml==5.1.0
+myst-parser==2.0.0
+sphinx_design==0.5.0
