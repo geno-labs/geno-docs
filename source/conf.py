@@ -15,13 +15,8 @@ release = 'master'
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = [
-        "myst_parser",
         "recommonmark",
-        "sphinx_markdown_tables",
-        "sphinx_tabs.tabs",
-        "sphinxcontrib.httpdomain",
-        "sphinxext.opengraph"
-        
+        "sphinx_markdown_tables"
 ]
 
 templates_path = ['_templates']
