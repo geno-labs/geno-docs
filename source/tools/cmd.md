@@ -2,18 +2,18 @@
 
 ## Cmd 介绍
 
-Geno 的命令行工具（CLI）旨在提供一个简洁、高效的方式来管理和与区块链网络进行交互。通过命令行，开发者可以执行各种操作，如创建钱包、发送交易、部署智能合约等。本文档将详细介绍这些命令及其使用方法。
+Geno 的命令行工具（CLI）旨在提供一个简洁、高效的方式来管理和与区块链网络进行交互。通过命令行，开发者可以执行各种操作，如创建钱包。本文档将详细介绍这些命令及其使用方法。
 
 ## 安装与配置
 
 ### 安装条件
 
-1. 确保已安装 Rust（如果使用基于Node.js的CLI）
-2. 安装Git用于从GitHub克隆项目。
+1. 确保已安装 Rust（v1.79 ++）执行环境
+2. 安装 Git 用于从 GitHub 克隆项目。
 
 ### 安装CLI
 
-1. 从GitHub克隆仓库
+1. 从 GitHub 克隆仓库
    
    ```shell
    git clone <project-url>
@@ -49,7 +49,7 @@ Geno 的命令行工具（CLI）旨在提供一个简洁、高效的方式来管
   
 ### Check Keystore
 
-   校验 Keystore
+   校验 Keystore 文件
 
    ```shell
       geno --check-keystore <keystore> <password>
