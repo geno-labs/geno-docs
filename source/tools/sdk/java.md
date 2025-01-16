@@ -112,6 +112,49 @@
         String hash = Transaction.sendRaw(client, raw);
     ```
 
++ 查询交易
+  
+    ```java
+        try {
+            String hash = "0x903077fdf3ee1ad05b6fbdc90216708c803ac1ca3ea0de759d5a9a4c13cde8ca";
+            TxInfo info = Transaction.getTx(client, hash);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    ```
+
+### 区块类
+
++ 查询最新区块高度
+  
+    ```java
+        try {
+            Long height = Block.getLatestHeight(client);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    ```
+
++ 根据区块高度查询区块
+  
+    ```java
+        try {
+            Long height = 76L;
+            Block.getBlockByHeight(client, height);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    ```
+
++ 查询最新区块
+  
+    ```java
+        try {
+            Block.getLatestBlock(client);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    ```
 
 ### 智能合约类
 
