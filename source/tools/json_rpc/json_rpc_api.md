@@ -58,19 +58,19 @@ curl --location 'http://127.0.0.1:8080/v1' \
 
 + `parameter`: `string` 类型，函数参数
 
-+ `ctype`: `uint` 类型，虚拟机类型：0 - wasm
++ `ctype`: `uint256` 类型，虚拟机类型：0 - wasm
 
 ## Returns
 
-+ `code`: `i32` 类型，状态码
++ `code`: `uint32` 类型，状态码
 + `result`: `string` 类型，执行结果
 + `message`: `string` 类型，错误提示信息
-+ `gas_used`: `u64` 类型，使用的 gas 数量
++ `gas_used`: `uint256` 类型，使用的 gas 数量
 + `events`: `[]` 结构体数组类型，交易包含的合约事件，结构体如下：
-  + `topic`: `u64` 类型，topic
-  + `tx_id`: `u64` 类型，id
-  + `contract_name`: `u64` 类型，合约名称
-  + `contract_version`: `u64` 类型，合约版本
+  + `topic`: `string[]` 类型，topic
+  + `tx_id`: `string` 类型，id
+  + `contract_name`: `string` 类型，合约名称
+  + `contract_address`: `string` 类型，合约地址
   + `event_data`: `string[]` 类型，事件列表
 
 ## Example
@@ -155,6 +155,7 @@ curl --location 'http://127.0.0.1:8081/v1' \
   + `kind`: `i32` 区块高度
 
   + `payload`: `Enum` 结构体枚举类型，Payload , 结构体如下：
+  
     | Key          | `tx_type` | 字段                                                                                                            | 说明        | 示例                                                                                                                                                               |
     | ------------ | --------- | --------------------------------------------------------------------------------------------------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
     | `Transfer`   | `1`       | `to`: `string`类型，转账接收方地址 <br> `balance`: `number` 类型，转账数量                                      | 转账说明xxx | <pre lang="json"> { <br>   "Transfer": { <br>     "to": "did:geno:0x1a7b27159a59ed280295efd321a8586b466c5918", <br>     "balance": 20000 <br>    } <br> } </pre>   |
@@ -164,6 +165,7 @@ curl --location 'http://127.0.0.1:8081/v1' \
     | `SetArchive` | `5`       | `key`: `string` 类型，<br> `value`: `string` 类型 <br> `delete`: `bool` 类型                                    | 转账说明xxx | <pre lang="json"> { <br>   "SetArchive": { <br>     "to": "did:geno:0x1a7b27159a59ed280295efd321a8586b466c5918", <br>     "balance": 20000 <br>    } <br> } </pre> |
     | `IssueAsset` | `6`       | `code`: `string` 类型，<br> `amount`: `number` 类型 <br> `kind`: `number` 类型                                  | 转账说明xxx | <pre lang="json"> { <br>   "IssueAsset": { <br>     "to": "did:geno:0x1a7b27159a59ed280295efd321a8586b466c5918", <br>     "balance": 20000 <br>    } <br> } </pre> |
     | `PayAsset`   | `7`       | `key`: `string`类型，<br> `value`: `string` 类型，<br> `value_type`: `string` 类型，<br> `encoded`: `bool` 类型 | 转账说明xxx | <pre lang="json"> { <br>   "PayAsset": { <br>     "to": "did:geno:0x1a7b27159a59ed280295efd321a8586b466c5918", <br>     "balance": 20000 <br>    } <br> } </pre>   |
+    | `PayAsset`   | `8`       | `key`: `string`类型，<br> `value`: `string` 类型，<br> `value_type`: `string` 类型，<br> `encoded`: `bool` 类型 | 转账说明xxx |  `{"id": 3, "name": "Charlie", "age": 35}`  |
 
   + `err_code`: `i32` 类型，状态码
 
