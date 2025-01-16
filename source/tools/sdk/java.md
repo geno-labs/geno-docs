@@ -26,7 +26,7 @@
 2. 使用Maven下载必要的依赖库
 
     ```shell
-    mvn clean install
+        mvn clean install
     ```
 
 ### 配置SDK
