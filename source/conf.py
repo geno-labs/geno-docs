@@ -16,6 +16,7 @@ release = 'master'
 
 extensions = [
         "myst_parser",
+        "recommonmark",
         "sphinx_markdown_tables",
         "sphinx_tabs.tabs",
         "sphinxcontrib.httpdomain",
