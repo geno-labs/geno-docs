@@ -156,18 +156,8 @@ curl --location 'http://127.0.0.1:8081/v1' \
 
   + `payload`: `Enum` 结构体枚举类型，Payload , 结构体如下：
   
-    | Key          | `tx_type` | 字段           | 说明        | 示例          |
-    
-    | ------------ | --------- | -----------------| ----------- | ----------------- |
-    
-    | `Transfer`   | `1`       | `to`: `string`类型，转账接收方地址 <br> `balance`: `number` 类型，转账数量                                      | 转账说明xxx | <pre lang="json"> { <br>   "Transfer": { <br>     "to": "did:geno:0x1a7b27159a59ed280295efd321a8586b466c5918", <br>     "balance": 20000 <br>    } <br> } </pre>   |
-    | `Call`       | `2`       | `to`: `string`类型，调用的合约地址<br> `balance`: `number` 类型 <br> `input`: `Call` 类型                       | 转账说明xxx | <pre lang="json"> { <br>   "Call": { <br>     "to": "did:geno:0x1a7b27159a59ed280295efd321a8586b466c5918", <br>     "balance": 20000 <br>    } <br> } </pre>       |
-    | `SysCall`    | `3`       | `to`: `string`类型，调用的合约地址<br> `balance`: `number` 类型 <br> `input`: `Call` 类型                       | 转账说明xxx | <pre lang="json"> { <br>   "SysCall": { <br>     "to": "did:geno:0x1a7b27159a59ed280295efd321a8586b466c5918", <br>     "balance": 20000 <br>    } <br> } </pre>    |
-    | `SetStorage` | `4`       | `key`: `string` 类型，<br> `value`: `string` 类型 <br> `delete`: `bool` 类型                                    | 转账说明xxx | <pre lang="json"> { <br>   "SetStorage": { <br>     "to": "did:geno:0x1a7b27159a59ed280295efd321a8586b466c5918", <br>     "balance": 20000 <br>    } <br> } </pre> |
-    | `SetArchive` | `5`       | `key`: `string` 类型，<br> `value`: `string` 类型 <br> `delete`: `bool` 类型                                    | 转账说明xxx | <pre lang="json"> { <br>   "SetArchive": { <br>     "to": "did:geno:0x1a7b27159a59ed280295efd321a8586b466c5918", <br>     "balance": 20000 <br>    } <br> } </pre> |
-    | `IssueAsset` | `6`       | `code`: `string` 类型，<br> `amount`: `number` 类型 <br> `kind`: `number` 类型                                  | 转账说明xxx | <pre lang="json"> { <br>   "IssueAsset": { <br>     "to": "did:geno:0x1a7b27159a59ed280295efd321a8586b466c5918", <br>     "balance": 20000 <br>    } <br> } </pre> |
-    | `PayAsset`   | `7`       | `key`: `string`类型，<br> `value`: `string` 类型，<br> `value_type`: `string` 类型，<br> `encoded`: `bool` 类型 | 转账说明xxx | <pre lang="json"> { <br>   "PayAsset": { <br>     "to": "did:geno:0x1a7b27159a59ed280295efd321a8586b466c5918", <br>     "balance": 20000 <br>    } <br> } </pre>   |
-    | `PayAsset`   | `8`       | `key`: `string`类型，<br> `value`: `string` 类型，<br> `value_type`: `string` 类型，<br> `encoded`: `bool` 类型 | 转账说明xxx |  `{"id": 3, "name": "Charlie", "age": 35}`  |
+    ![payload-01](/img/img_0002.png)
+    ![payload-02](../../../img/img_0003.png)
 
   + `err_code`: `i32` 类型，状态码
 
