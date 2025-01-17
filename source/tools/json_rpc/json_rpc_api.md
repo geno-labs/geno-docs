@@ -274,7 +274,7 @@ curl --location 'http://127.0.0.1:8081/v1' \
 
   + `payload`: `Enum` 结构体枚举类型，Payload , 结构体如下：
   
-    ![payload-01](../../../img/img_0004.png)
+![payload-01](../../../img/img_0004.png)
 
   + `err_code`: `i32` 类型，状态码
 
@@ -390,7 +390,7 @@ curl --location 'http://127.0.0.1:8081/v1' \
 
 + `payload`: `Enum` 结构体枚举类型，Payload , 结构体如下：
   
-  ![payload-01](../../../img/img_0004.png)
+![payload-01](../../../img/img_0004.png)
 
 + `err_code`: `i32` 类型，状态码
 
@@ -504,7 +504,7 @@ curl --location 'http://127.0.0.1:8081/v1' \
 
 + `payload`: `Enum` 结构体枚举类型，Payload , 结构体如下：
   
-  ![payload-01](../../../img/img_0004.png)
+![payload-01](../../../img/img_0004.png)
 
 ## Example
 
