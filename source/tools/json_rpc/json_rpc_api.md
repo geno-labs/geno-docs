@@ -1,3 +1,121 @@
+# get_account
+
+获取账户信息
+
+## Parameters
+
++ `addr`: `string` 类型，账户地址
+
+## Returns
+
++ `address`: `string` 类型，钱包地址
+
++ `nonce`: `uint256` 类型，nonce
+
++ `balance`: `uint256` 类型，账户余额
+
++ `account_type`: `bool` 类型，是否为合约账户：`true` - 是, `false` - 否 
+
++ `contract`: 结构体类型，合约账户信息
+  
+  + `name`: `String` 类型，合约名称
+  
+  + `creator`: `String` 类型，合约创建者
+
+## Example
+
+### Request
+
+```shell
+
+curl --location 'http://127.0.0.1:8080/v1' \
+--header 'Content-Type: application/json' \
+--data ' {
+    "jsonrpc":"2.0",
+    "method":"get_account",
+    "params":[
+        "did:geno:0xf6b02a2d47b84e845b7e3623355f041bcb36daf1"
+    ],
+    "id":1
+}'
+
+```
+### Response
+
+```json
+
+{
+    "chain_id": "2024",
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": {
+        "account_type": false,
+        "address": "did:geno:0xf6b02a2d47b84e845b7e3623355f041bcb36daf1",
+        "balance": 49920000,
+        "contract": {
+            "creator": "",
+            "name": ""
+        },
+        "nonce": 4
+    },
+    "error": {
+        "code": 0,
+        "message": "Success",
+        "data": null
+    }
+}
+
+```
+
+
+# get_nonce
+
+获取账户 Nonce 值
+
+## Parameters
+
++ `addr`: `string` 类型，账户地址
+
+## Returns
+
++ `nonce`: `uint256` 类型，Nonce
+
+## Example
+
+### Request
+
+```shell
+
+curl --location 'http://127.0.0.1:8080/v1' \
+--header 'Content-Type: application/json' \
+--data ' {
+    "jsonrpc":"2.0",
+    "method":"get_nonce",
+    "params":[
+        "did:geno:0xf6b02a2d47b84e845b7e3623355f041bcb36daf1"
+    ],
+    "id":1
+}'
+
+```
+### Response
+
+```json
+
+{
+    "chain_id": "2024",
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": 1,
+    "error": {
+        "code": 0,
+        "message": "Success",
+        "data": null
+    }
+}
+
+```
+
 # send_raw_tx 
 
 提交签名交易
@@ -156,8 +274,7 @@ curl --location 'http://127.0.0.1:8081/v1' \
 
   + `payload`: `Enum` 结构体枚举类型，Payload , 结构体如下：
   
-    ![payload-01](/img/img_0002.png)
-    ![payload-02](../../../img/img_0003.png)
+    ![payload-01](../../../img/img_0004.png)
 
   + `err_code`: `i32` 类型，状态码
 
@@ -272,15 +389,8 @@ curl --location 'http://127.0.0.1:8081/v1' \
 + `kind`: `i32` 区块高度
 
 + `payload`: `Enum` 结构体枚举类型，Payload , 结构体如下：
-  | Key          | `tx_type` | 字段                                                                                                            | 说明        | 示例                                                                                                                                                               |
-  | ------------ | --------- | --------------------------------------------------------------------------------------------------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-  | `Transfer`   | `1`       | `to`: `string`类型，转账接收方地址 <br> `balance`: `number` 类型，转账数量                                      | 转账说明xxx | <pre lang="json"> { <br>   "Transfer": { <br>     "to": "did:geno:0x1a7b27159a59ed280295efd321a8586b466c5918", <br>     "balance": 20000 <br>    } <br> } </pre>   |
-  | `Call`       | `2`       | `to`: `string`类型，调用的合约地址<br> `balance`: `number` 类型 <br> `input`: `Call` 类型                       | 转账说明xxx | <pre lang="json"> { <br>   "Call": { <br>     "to": "did:geno:0x1a7b27159a59ed280295efd321a8586b466c5918", <br>     "balance": 20000 <br>    } <br> } </pre>       |
-  | `SysCall`    | `3`       | `to`: `string`类型，调用的合约地址<br> `balance`: `number` 类型 <br> `input`: `Call` 类型                       | 转账说明xxx | <pre lang="json"> { <br>   "SysCall": { <br>     "to": "did:geno:0x1a7b27159a59ed280295efd321a8586b466c5918", <br>     "balance": 20000 <br>    } <br> } </pre>    |
-  | `SetStorage` | `4`       | `key`: `string` 类型，<br> `value`: `string` 类型 <br> `delete`: `bool` 类型                                    | 转账说明xxx | <pre lang="json"> { <br>   "SetStorage": { <br>     "to": "did:geno:0x1a7b27159a59ed280295efd321a8586b466c5918", <br>     "balance": 20000 <br>    } <br> } </pre> |
-  | `SetArchive` | `5`       | `key`: `string` 类型，<br> `value`: `string` 类型 <br> `delete`: `bool` 类型                                    | 转账说明xxx | <pre lang="json"> { <br>   "SetArchive": { <br>     "to": "did:geno:0x1a7b27159a59ed280295efd321a8586b466c5918", <br>     "balance": 20000 <br>    } <br> } </pre> |
-  | `IssueAsset` | `6`       | `code`: `string` 类型，<br> `amount`: `number` 类型 <br> `kind`: `number` 类型                                  | 转账说明xxx | <pre lang="json"> { <br>   "IssueAsset": { <br>     "to": "did:geno:0x1a7b27159a59ed280295efd321a8586b466c5918", <br>     "balance": 20000 <br>    } <br> } </pre> |
-  | `PayAsset`   | `7`       | `key`: `string`类型，<br> `value`: `string` 类型，<br> `value_type`: `string` 类型，<br> `encoded`: `bool` 类型 | 转账说明xxx | <pre lang="json"> { <br>   "PayAsset": { <br>     "to": "did:geno:0x1a7b27159a59ed280295efd321a8586b466c5918", <br>     "balance": 20000 <br>    } <br> } </pre>   |
+  
+  ![payload-01](../../../img/img_0004.png)
 
 + `err_code`: `i32` 类型，状态码
 
@@ -393,16 +503,8 @@ curl --location 'http://127.0.0.1:8081/v1' \
 + `kind`: `i32` 区块高度
 
 + `payload`: `Enum` 结构体枚举类型，Payload , 结构体如下：
-  | Key          | `tx_type` | 字段                                                                                                            | 说明        | 示例                                                                                                                                                               |
-  | ------------ | --------- | --------------------------------------------------------------------------------------------------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-  | `Transfer`   | `1`       | `to`: `string`类型，转账接收方地址 <br> `balance`: `number` 类型，转账数量                                      | 转账说明xxx | <pre lang="json"> { <br>   "Transfer": { <br>     "to": "did:geno:0x1a7b27159a59ed280295efd321a8586b466c5918", <br>     "balance": 20000 <br>    } <br> } </pre>   |
-  | `Call`       | `2`       | `to`: `string`类型，调用的合约地址<br> `balance`: `number` 类型 <br> `input`: `Call` 类型                       | 转账说明xxx | <pre lang="json"> { <br>   "Call": { <br>     "to": "did:geno:0x1a7b27159a59ed280295efd321a8586b466c5918", <br>     "balance": 20000 <br>    } <br> } </pre>       |
-  | `SysCall`    | `3`       | `to`: `string`类型，调用的合约地址<br> `balance`: `number` 类型 <br> `input`: `Call` 类型                       | 转账说明xxx | <pre lang="json"> { <br>   "SysCall": { <br>     "to": "did:geno:0x1a7b27159a59ed280295efd321a8586b466c5918", <br>     "balance": 20000 <br>    } <br> } </pre>    |
-  | `SetStorage` | `4`       | `key`: `string` 类型，<br> `value`: `string` 类型 <br> `delete`: `bool` 类型                                    | 转账说明xxx | <pre lang="json"> { <br>   "SetStorage": { <br>     "to": "did:geno:0x1a7b27159a59ed280295efd321a8586b466c5918", <br>     "balance": 20000 <br>    } <br> } </pre> |
-  | `SetArchive` | `5`       | `key`: `string` 类型，<br> `value`: `string` 类型 <br> `delete`: `bool` 类型                                    | 转账说明xxx | <pre lang="json"> { <br>   "SetArchive": { <br>     "to": "did:geno:0x1a7b27159a59ed280295efd321a8586b466c5918", <br>     "balance": 20000 <br>    } <br> } </pre> |
-  | `IssueAsset` | `6`       | `code`: `string` 类型，<br> `amount`: `number` 类型 <br> `kind`: `number` 类型                                  | 转账说明xxx | <pre lang="json"> { <br>   "IssueAsset": { <br>     "to": "did:geno:0x1a7b27159a59ed280295efd321a8586b466c5918", <br>     "balance": 20000 <br>    } <br> } </pre> |
-  | `PayAsset`   | `7`       | `key`: `string`类型，<br> `value`: `string` 类型，<br> `value_type`: `string` 类型，<br> `encoded`: `bool` 类型 | 转账说明xxx | <pre lang="json"> { <br>   "PayAsset": { <br>     "to": "did:geno:0x1a7b27159a59ed280295efd321a8586b466c5918", <br>     "balance": 20000 <br>    } <br> } </pre>   |
-
+  
+  ![payload-01](../../../img/img_0004.png)
 
 ## Example
 
@@ -454,122 +556,6 @@ curl --location 'http://127.0.0.1:8081/v1' \
 
 ```
 
-# get_account
-
-获取账户信息
-
-## Parameters
-
-+ `addr`: `string` 类型，账户地址
-
-## Returns
-
-+ `address`: `string` 类型，钱包地址
-
-+ `nonce`: `uint256` 类型，nonce
-
-+ `balance`: `uint256` 类型，账户余额
-
-+ `account_type`: `bool` 类型，是否为合约账户：`true` - 是, `false` - 否 
-
-+ `contract`: 结构体类型，合约账户信息
-  
-  + `name`: `String` 类型，合约名称
-  
-  + `creator`: `String` 类型，合约创建者
-
-## Example
-
-### Request
-
-```shell
-
-curl --location 'http://127.0.0.1:8080/v1' \
---header 'Content-Type: application/json' \
---data ' {
-    "jsonrpc":"2.0",
-    "method":"get_account",
-    "params":[
-        "did:geno:0xf6b02a2d47b84e845b7e3623355f041bcb36daf1"
-    ],
-    "id":1
-}'
-
-```
-### Response
-
-```json
-
-{
-    "chain_id": "2024",
-    "jsonrpc": "2.0",
-    "id": 1,
-    "result": {
-        "account_type": false,
-        "address": "did:geno:0xf6b02a2d47b84e845b7e3623355f041bcb36daf1",
-        "balance": 49920000,
-        "contract": {
-            "creator": "",
-            "name": ""
-        },
-        "nonce": 4
-    },
-    "error": {
-        "code": 0,
-        "message": "Success",
-        "data": null
-    }
-}
-
-```
-
-# get_nonce
-
-获取账户 Nonce 值
-
-## Parameters
-
-+ `addr`: `string` 类型，账户地址
-
-## Returns
-
-+ `nonce`: `uint256` 类型，Nonce
-
-## Example
-
-### Request
-
-```shell
-
-curl --location 'http://127.0.0.1:8080/v1' \
---header 'Content-Type: application/json' \
---data ' {
-    "jsonrpc":"2.0",
-    "method":"get_nonce",
-    "params":[
-        "did:geno:0xf6b02a2d47b84e845b7e3623355f041bcb36daf1"
-    ],
-    "id":1
-}'
-
-```
-### Response
-
-```json
-
-{
-    "chain_id": "2024",
-    "jsonrpc": "2.0",
-    "id": 1,
-    "result": 1,
-    "error": {
-        "code": 0,
-        "message": "Success",
-        "data": null
-    }
-}
-
-```
 
 # get_block
 
