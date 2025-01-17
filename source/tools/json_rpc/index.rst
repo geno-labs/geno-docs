@@ -39,7 +39,7 @@ Error Code
 
 - **FunctonNotFound : -101**
 
-   无效的 json-rpc 请求
+   无效的 json-rpc 请求,API接口不存在
 
 - **InvalidArgs : -103**
 
@@ -48,8 +48,6 @@ Error Code
 - **InvalidFormat : -104**
 
    无效的请求格式
-
-- **DataSetNotFound : -105**
 
 
 
@@ -62,29 +60,27 @@ Error Code
 
 - **TxSetIsFull : -201**
 
-   交易池拥堵
+   达到交易池容量上限
 
 - **TxSetTooManyTransactions : -202**
 
-   交易池错误
+   交易池每个账户达到容量上限
 
 - **TxSetInvalidUpdate : -203**
-
+   
+   交易更新失败
 
 - **TxSetValidationError : -204**
-
+   
+   交易验证失败
 
 - **TxSetIsPending : -205**
-
+   
+   交易已经在交易池排队
 
 - **TxSetUnknownError : -206**
-
-
--3xx ValidationError
-------------------
-
-- **ValidationError : -300**
-
+   
+   交易池未知错误
 
 
 JSON-RPC 方法概览
