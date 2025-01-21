@@ -55,7 +55,7 @@
 
 **开发流程示例**
 
-完成[安装步骤]()后，进入示例目录，运行公开可验证密文账本：
+完成[安装步骤](https://geno-docs.readthedocs.io/zh-cn/latest/quick_start/network/install/signle_node.html)后，进入示例目录，运行公开可验证密文账本：
 
 
 
