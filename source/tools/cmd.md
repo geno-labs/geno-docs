@@ -16,12 +16,12 @@ Geno 的命令行工具（CLI）旨在提供一个简洁、高效的方式来管
 1. 从 GitHub 克隆仓库
    
    ```shell
-   git clone <project-url>
+      git clone <project-url>
    ```
 2. 进入项目 `root` 目录，执行命令安装依赖并生成可执行命令文件
 
    ```shell
-   cargo build
+      cargo build
    ```
 
 3. 检查是否安装成功
