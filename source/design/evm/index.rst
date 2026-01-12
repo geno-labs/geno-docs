@@ -8,6 +8,7 @@
    vm.md
    contract_demo.md
    deploy.md
+   dtvm.md
 
 
    
