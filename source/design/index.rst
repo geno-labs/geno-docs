@@ -11,6 +11,7 @@
    system_contract/index.rst
    account/index.rst
    feature/native_asset.md
+   pre_research/index.rst
 
 
    

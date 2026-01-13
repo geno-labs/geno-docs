@@ -1,6 +1,4 @@
-# Docker/Kubernetes 部署方案
-
-# Kubernetes 部署
+# Kubernetes 部署方案
 
 1. 修改Dockerfile
 

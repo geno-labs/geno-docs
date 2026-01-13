@@ -1,6 +1,4 @@
-# Docker/Kubernetes 部署方案
-
-# GenoChain Docker部署
+# Docker 部署方案
 
 ## 部署要求
 已安装docker和docker-compose
