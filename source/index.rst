@@ -41,6 +41,7 @@ Welcome to Geno Documentation !
    design/system_contract/index.rst
    design/account/index.rst
    design/feature/native_asset.md
+   design/pre_research/index.rst
 
 .. toctree::
    :maxdepth: 2
