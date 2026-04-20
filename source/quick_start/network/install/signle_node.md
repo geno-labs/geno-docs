@@ -50,8 +50,6 @@ address = "0.0.0.0:8081"
 batch_size_limit = 20
 page_size_limit = 1000
 content_length_limit = 1048576
-#tls_cert_path = "configs/tls/ca.crt"
-#tls_key_path = "configs/tls/ca.key"
 
 [ssl]
 chain_file = "config/node.crt"
