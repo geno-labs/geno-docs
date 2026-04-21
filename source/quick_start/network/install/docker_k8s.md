@@ -59,7 +59,6 @@ Kf0rm@d48.%94wvAFTs!Qx
 ## This is a TOML document. Boom.
 network_id = 20250520
 chain_id = "2025"
-ssl_enable = false
 node_address = "did:geno:0x8efd52de5102d1e9c3d7b855b8203aac0a875c4d"
 node_private_key = "83d842cfb81854e42646eea93a5fcbe4131d9371d262efe1d48602b8790cd50eb0a4769bfa9a7f3b8eb2a1c401da2764e46b11dd8378bb58eb76ab5d401784c242ddb8b38e7833dd8e74a2fd3502ffb0"
 key_version = 12356
@@ -87,13 +86,6 @@ address = "0.0.0.0:8080"
 batch_size_limit = 20
 page_size_limit = 1000
 content_length_limit = 1048576
-
-[ssl]
-chain_file = "config/node.crt"
-private_key_file = "config/node.pem"
-private_password = "42001df2a1f54974baa38073eae2ee53"
-dhparam_file = "config/dh2048.pem"
-verify_file = "config/ca.crt"
 
 [p2p]
 codec_type = "default"

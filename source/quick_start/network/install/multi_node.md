@@ -22,7 +22,6 @@
 # This is a TOML document. Boom.
 network_id = 8108773
 chain_id = "2024"
-ssl_enable = false
 node_address = "did:geno:0x160b54be617f4bff07bd6c994fc6dd17a69d5e4e"
 node_private_key = "43f47b5387b5321a712c5960074576b114835aa8e1ce1c2e6ab070d7ffb44346"
 key_version = 12356
@@ -49,13 +48,6 @@ address = "0.0.0.0:8081"
 batch_size_limit = 20
 page_size_limit = 1000
 content_length_limit = 1048576
-
-[ssl]
-chain_file = "config/node.crt"
-private_key_file = "config/node.pem"
-private_password = "42001df2a1f54974baa38073eae2ee53"
-dhparam_file = "config/dh2048.pem"
-verify_file = "config/ca.crt"
 
 [p2p]
 codec_type = "default"
